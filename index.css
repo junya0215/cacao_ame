@@ -372,7 +372,7 @@ section .page_title{
 
 @media screen and (max-width: 620px){
   #basic_info .wrap{ 
-    /*display: block;*/
+    display: block;
     height: auto;
   }
 
