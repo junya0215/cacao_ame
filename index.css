@@ -214,6 +214,7 @@ section .page_title{
 
   display: flex;
   flex-flow: row wrap;
+  justify-content: flex-start;
 }
 
 #basic_info .dob{
@@ -375,7 +376,6 @@ section .page_title{
   }
 
   #basic_info .data_wrap{
-    width: 100%;
     margin-top: 5px;
     padding: 0;
   }
