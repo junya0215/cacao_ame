@@ -95,10 +95,10 @@ var anchors = Array.from(document.querySelectorAll('a'));
 anchors.forEach(function (a){
   a.addEventListener('touchstart', function () {
     a.classList.add('hover');
-  }, true);
+  }, false);
   a.addEventListener('touchend', function () {
     a.classList.remove('hover');
-  }, true);
+  }, false);
 });
 
 
