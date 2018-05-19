@@ -27,45 +27,44 @@ var random,
     allDel,
     resetColor;
 
-random = () => Math.random() * 256 >> 0;
+random = function(){ return Math.random() * 256 >> 0; }
 
-randomBgColor = element => {
-  element.style.backgroundColor =
-    `rgb(${random()}, ${random()}, ${random()})`;
+randomBgColor = function(element) {
+  element.style.backgroundColor = 'rgb(' + random() + ',' + random() + ',' + random() +')';
 }
 
 wrap = document.getElementById('block_wrap');
 
-add = () => {
-  let e = document.createElement('div');
+add = function() {
+  var e = document.createElement('div');
       e.classList.add('block');
 
   randomBgColor(e);
   e.textContent = e.style.backgroundColor;
 
-  e.addEventListener('click', evt => {
+  e.addEventListener('click', function (evt) {
     evt.target.classList.toggle('selected');
   });
 
   wrap.appendChild(e);
 }
  
-del = () => {
-  let selectElements = Array.from(wrap.getElementsByClassName('selected'));
-  selectElements.forEach(ele => { 
+del = function() {
+  var selectElements = Array.from(wrap.getElementsByClassName('selected'));
+  selectElements.forEach( function (ele) { 
     wrap.removeChild(ele);
   });
 }
 
-resetColor = () => {
-  let elements = Array.from(wrap.getElementsByClassName('block'));
-  elements.forEach(ele => { 
+resetColor = function () {
+  var elements = Array.from(wrap.getElementsByClassName('block'));
+  elements.forEach(function (ele) { 
     randomBgColor(ele);
     ele.textContent = ele.style.backgroundColor;
   }); 
 }
 
-allDel = () => {
+allDel = function () {
   wrap.textContent = null;
 }
 
