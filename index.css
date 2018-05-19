@@ -5,7 +5,6 @@
 }
 
 :root, body{
-  position: relative;
   height: 100%;
   background-color: #2A2A2A;
 }
@@ -151,8 +150,11 @@ section .page_title{
   color: #FFF;
 }
 
-#home .wrap{
-  width: 100%; height: auto;
+#home .page_title span{
+  display: block;
+  font-size: 0.6em;
+  padding-top: 10px;
+  text-transform: none;
 }
 
 /* profile section */
@@ -272,7 +274,7 @@ section .page_title{
 }
 
 #skill .item,
-#activity .item{
+#activity a.item{
   margin: 10px 10px 0 0;
   padding: 6px 10px;
   font-size: 1.15em;
@@ -299,8 +301,8 @@ section .page_title{
   color: #FFF;
 }
 
-#activity .item:hover
-#activity .item.hover{
+#activity a.item:hover,
+#activity a.item.hover{
   background-color: rgba(30,144,255,.6);
 }
 
