@@ -18,6 +18,10 @@ a{
   -webkit-user-select: none;
   -ms-user-select: none;
       user-select: none;
+  
+  -moz-touch-action: manipulation;
+  -webkit-touch-action: manipulation;
+  touch-action: manipulation;
 }
 
 img{
