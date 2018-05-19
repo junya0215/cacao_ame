@@ -185,6 +185,8 @@ section .page_title{
 
   width: 100%; height: auto;
   margin-top: 10px;
+
+  box-shadow: 0 0 0 1px white inset;
 }
 
 #basic_info .icon{
@@ -223,7 +225,6 @@ section .page_title{
 
 #basic_info .data span{
   flex: 0 1 150px;
-  min-width: 150px;
   height: auto;
 
   display: flex;
@@ -397,7 +398,6 @@ section .page_title{
   #basic_info .data span{
     flex: 1 1 30%;
     margin-right: 5px;
-    min-width: auto;
   }
   
   #basic_info .data p{
