@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="index.css">
+  <title>season</title>
+</head>
+<body ontouchstart="">
+<div class="circle"></div>
+<script>
+var root  = document.querySelector('body > div');
+var season = ['spring','summer','autumn','winter'];
+
+for(var i = 0; i < 4; i++){
+  var tree = document.createElement('div');
+  tree.className = 'tree '+ season[i];
+  root.appendChild(tree);
+
+  fractal(4,tree);
+}
+
+function fractal(hr_cnt,node) {
+  if(hr_cnt <= 0) return;
+
+  var e1 = document.createElement('div');
+  var e2 = document.createElement('div');
+
+  node.appendChild(e1);
+  node.appendChild(e2);
+
+  fractal(hr_cnt - 1,e1);
+  fractal(hr_cnt - 1,e2);
+}
+</script>
+<script src="../index.js"></script>
+</body>
+</html>

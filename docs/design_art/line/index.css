@@ -1,0 +1,119 @@
+.root{
+  position: fixed;
+  top: 35%; left: 50%;
+
+  width: 100px;
+  height: 2px;
+
+  background-image: linear-gradient(to bottom,dodgerblue 20%,forestgreen);
+  transform: translate(-50%,-50%);
+
+  z-index: -1;
+}
+
+.root div{
+  position: absolute;
+  top: 50%; left: 100%;
+
+  width: 100%;
+  height: 100%;
+
+  background-image: inherit;
+
+  transform-origin: left center;
+  transform: translateY(-50%) rotate(00deg);
+
+  transition: 3s;
+}
+
+.box{
+  display: inline-block;
+
+  width: fit-content;
+  padding: .5em;
+  border: 2px solid;
+  vertical-align: top;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+
+[class*="angle"]:hover,
+[class*="angle"]:active{
+  background-color: red;
+  color: white;
+}
+
+.angle_15:hover ~ .root div,
+.angle_15:active ~ .root div{
+  transform: translateY(-50%) rotate(15deg);
+}
+
+.angle_30:hover ~ .root div,
+.angle_30:active ~ .root div{
+  transform: translateY(-50%) rotate(30deg);
+}
+
+.angle_45:hover ~ .root div,
+.angle_45:active ~ .root div{
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.angle_60:hover ~ .root div,
+.angle_60:active ~ .root div{
+  transform: translateY(-50%) rotate(60deg);
+}
+
+.angle_75:hover ~ .root div,
+.angle_75:active ~ .root div{
+  transform: translateY(-50%) rotate(75deg);
+}
+
+.angle_90:hover ~ .root div,
+.angle_90:active ~ .root div{
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.angle_90_invert:hover ~ .root div,
+.angle_90_invert:active ~ .root div{
+  transform: translateY(-50%) rotate(90deg) scaleY(-1);
+}
+
+input{
+  display: none;
+}
+
+input:checked + .box{
+  background-color: green;
+  color: white;
+}
+
+#width_90p:checked ~ .root div{
+  width: 90%;
+}
+
+#height_150p:checked ~ .root div{
+  height: 150%;
+}
+
+.br_red{
+  border-color: red;
+}
+
+.br_green{
+  border-color: green;
+}
+
+.br_black{
+  border-color: black;
+}
+
+.c_red{
+  color: red;
+}
+
+.c_green{
+  color: green;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="index.css">
+  <title>fractal_triangle</title>
+</head>
+<body ontouchstart="">
+<div class="triangle root"></div>
+<script>
+var root = document.querySelector('.root');
+
+fractal(7,root);
+
+function fractal(cnt,node) {
+  if(cnt <= 0) return;
+
+  var e1 = document.createElement('div');
+  var e2 = document.createElement('div');
+
+  e1.className = 'triangle';
+  e2.className = 'triangle';
+
+  node.appendChild(e1);
+  node.appendChild(e2);
+
+  fractal(cnt - 1,e1);
+  fractal(cnt - 1,e2);
+}
+</script>
+<script src="../index.js"></script>
+</body>
+</html>

@@ -1,0 +1,517 @@
+.mainColor{ background-color: #E09857; }
+.black{ background-color: black; }
+.white{ background-color: white; }
+.orange{ background-color: orange; }
+.yellowgreen{ background-color: yellowgreen }
+
+.bdColor{ color: black; }
+
+body{
+  margin: 0;
+}
+
+.world{
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+  box-shadow: 20px -2vh 0 10px black inset;
+}
+
+.area{
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  overflow: hidden;
+}
+
+.area:nth-of-type(2){
+  top: 20%;
+}
+
+.area.last{
+  top: 45%;
+}
+
+.conveyor{
+  position: absolute;
+  bottom: 0;
+  width: 80%;
+  height: 24px;
+  border: 2px solid;
+
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.conveyor.full{ width: 98vw; }
+.conveyor.invert{ right: 0; transform: scaleX(-1); }
+
+.last .conveyor{ border-radius: 10%; }
+
+.conveyor:before{
+  content: '';
+  
+  position: absolute;
+  top: 0;
+  left: -50%;
+
+  width: 200%;
+  height: 100%;
+  border-top: 5px dotted;
+
+  box-sizing: border-box;
+}
+
+.conveyor:after{
+  content: '';
+
+  position: absolute;
+  bottom: 0%;
+  right: -50%;
+
+  width: 200%;
+  height: 100%;
+  border-bottom: 5px dotted;
+
+  box-sizing: border-box;
+}
+
+.conveyor .roller{
+  position: absolute;
+  top: 50%;
+  right: 0;
+
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border: 5px dotted;
+  border-radius: 100%;
+
+  box-sizing: border-box;
+
+  backface-visibility: hidden;
+  transform: translateY(-50%);
+}
+
+.sort_area{
+  position: absolute;
+  bottom: 20%;
+  left: 50vw;
+
+  width: 25%;
+  height: 70%;
+
+  backface-visibility: hidden;
+  transform: translateX(-50%);
+
+  z-index: 2;
+}
+
+.sort_area:before{
+  content: '';
+  position: absolute;
+  top: 100%;
+
+  display: block;
+  width: 100%;
+  height: 50%;
+
+  background-color: inherit;
+}
+
+.press_machine{
+  position: absolute;
+  left: 3%;
+
+  width: 75px;
+  height: 10%;
+  border: 10px double;
+  border-radius: 8%;
+
+  box-sizing: border-box;
+}
+
+.truck{
+  position: absolute;
+  bottom: 0;
+  left: 80vw;
+
+  width: 360px;
+  height: 250px;
+
+  backface-visibility: hidden;
+  transform: translateX(-75%);
+  z-index: 3;
+}
+
+.truck .head{
+  position: absolute;
+  bottom: 25%;
+  width: 100px;
+  height: 50%;
+
+  border: 2px solid;
+  border-radius: 5% 15% 0 10%;
+
+  box-sizing: border-box;
+}
+
+.truck .head:before{
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 10%;
+
+  width: 50%;
+  height: 30%;
+  border-radius: 25% 15% 15% 0;
+  background-color: rgba(77,77,77,.45);
+  box-sizing: border-box;
+}
+
+
+/* wheel */
+.truck .head:after{
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+
+  width: 50px;
+  height: 50px;
+  border: 5px double white;
+  border-radius: 100%;
+  background-color: gray;
+  box-shadow: 0 -2px 0 2px black;
+
+  box-sizing: border-box;
+
+  backface-visibility: hidden;
+  transform: translate(-50%,-25%);
+  z-index: 3;
+}
+
+.truck .container{
+  position: absolute;
+  bottom: 25%;
+
+  width: 260px;
+  height: 25%;
+
+  backface-visibility: hidden;
+  transform: translateX(38%);
+  z-index: 2;
+}
+
+.truck .container:before{
+  content: '';
+  position: absolute;
+  
+  width: 100%;
+  height: 100%;
+  border: 2px solid;
+  background-color: inherit;
+
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+
+/* wheel */
+.truck .container:after{
+  content: '';
+  position: absolute;
+  top: 100%;
+  right: 15%;
+
+  width: 50px;
+  height: 50px;
+  border: 5px double white;
+  border-radius: 100%;
+  background-color: gray;
+  box-shadow: 0 -2px 0 2px black;
+
+  box-sizing: border-box;
+
+  backface-visibility: hidden;
+  transform: translateY(-25%);
+  z-index: 3;
+}
+
+.box.root{
+  position: absolute;
+  bottom: 1%;
+
+  width: 20%;
+  height: 50px;
+  margin: 0 10px;
+  box-shadow: 0 0 0 2px black inset;
+  z-index: 1;
+}
+
+.box.root div{
+  position: absolute;
+  left: 100%;
+
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  box-shadow: inherit;
+}
+
+.container div:before{
+  content: '';
+  position: absolute;
+  bottom: 102%;
+
+  width: 100%;
+  height: 100%;
+  background-color: orange;
+  box-shadow: inherit;
+}
+
+.box.root div:empty{ 
+  background-color: transparent; 
+  box-shadow: none;
+}
+
+.box.root div:empty:before{ 
+  left: 5px;
+  background-color: inherit;
+}
+
+.quality{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.quality > .box{
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  display: block;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0 0 0 2px black inset;
+
+  backface-visibility: hidden;
+  transform: translateY(-100%);
+}
+
+.box.good{
+  transform-origin: left bottom;
+}
+
+.box.bad{
+  opacity: 1;
+  overflow: hidden;
+  transform-origin: center bottom;
+}
+
+.box.bad:before{
+  content: '';
+  position: absolute;
+
+  width: 200%;
+  height: 10%;
+  background-color: black;
+
+  backface-visibility: hidden;
+  transform-origin: left center;
+  transform: rotate(45deg);
+}
+
+.box.bad:after{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 200%;
+  height: 10%;
+  background-color: black;
+
+  backface-visibility: hidden;
+  transform-origin: right center;
+  transform: rotate(-45deg);
+}
+
+/* animations */
+.conveyor:before{ animation: belt 6s linear infinite; }
+.conveyor:after { animation: belt 6s linear infinite reverse; }
+
+.conveyor .roller{ animation: roller 3s linear infinite; }
+
+.sort_area{ transition: background-color 2s; }
+.sort_area:hover{ background-color: rgba(0,0,0,.65); }
+
+.press_machine{ animation: press .5s linear infinite alternate; }
+
+.truck{ animation: truck 4s 10s linear infinite; }
+.truck.sub{ animation: truck_sub 4s 10s linear infinite; }
+
+.container:before{ transition: 3s; }
+.container:hover:before{ background-color: transparent; }
+
+.box.root div:empty{ animation: increment 3s 10s linear infinite; }
+
+.truck.sub .box.root div:empty{ animation: none; }
+
+.box.unknown:nth-of-type(1){ animation: move_sortArea 5s 0.0s linear infinite; }
+.box.unknown:nth-of-type(2){ animation: move_sortArea 5s 0.5s linear infinite; }
+.box.unknown:nth-of-type(3){ animation: move_sortArea 5s 1.0s linear infinite; }
+.box.unknown:nth-of-type(4){ animation: move_sortArea 5s 1.5s linear infinite; }
+.box.unknown:nth-of-type(5){ animation: move_sortArea 5s 2.0s linear infinite; }
+.box.unknown:nth-of-type(6){ animation: move_sortArea 5s 2.5s linear infinite; }
+
+.box.bad:nth-of-type(1){ animation: move_pressArea 3s 5s linear infinite; }
+.box.bad:nth-of-type(2){ animation: move_pressArea 3s 6s linear infinite; }
+
+.box.good:nth-of-type(1){ animation: move_container 4s 5s linear infinite; }
+.box.good:nth-of-type(2){ animation: move_container 4s 6s linear infinite; }
+
+@keyframes belt{
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(25%);
+  }
+}
+
+@keyframes roller{
+  from{
+    transform: translateY(-50%) rotate(0);
+  }
+  to{
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+@keyframes press{
+  0%,80%{
+    height: 10%;
+  }
+
+  90%,100%{
+    height: 80%;
+  }
+}
+
+@keyframes increment{
+  0%,15%{
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  15%,100%{
+    background-color: orange;
+    box-shadow: 0 0 0 2px black inset;
+  }
+}
+
+@keyframes truck{
+  0%,26%{
+    left: 80%;
+  }
+
+  50%{
+    left: -20%;
+  }
+
+  100%{
+    left: -100%;
+  }
+}
+
+@keyframes truck_sub{
+  0%,26%{
+    left: 200%;
+  }
+
+  50%,100%{
+    left: 80%;
+  }
+}
+
+/* 24px == conveyor height */
+@keyframes move_sortArea{
+  0%{
+    top: 0;
+    left: 0;
+  }
+
+  5%{
+    top: calc(20% - 24px);
+    left: 0;
+  }
+
+  50%{
+    top: calc(20% - 24px);
+    left: 80%;
+  }
+
+  55%{
+    top: calc(40% - 24px);
+    left: 80%;
+  }
+
+  100%{
+    top: calc(40% - 24px);
+    left: 40%;
+  }
+}
+
+@keyframes move_container{
+  0%{
+    top: calc(40% - 24px);
+    left: 40%;
+    transform: translateY(-100%) rotate(0deg);
+  }
+
+  5%{
+    top: calc(65% - 24px);
+    left: 40%;
+    transform: translateY(-100%) rotate(0deg);
+  }
+
+  70%{
+    top: calc(65% - 24px);
+    left: 80%;
+    transform: translateY(-100%) rotate(0deg);
+  }
+
+  100%{
+    top: calc(85% - 24px);
+    left: 80%;
+    transform: translateY(-100%) rotate(90deg);
+  }
+}
+
+@keyframes move_pressArea{
+  0%{
+    opacity: 1;
+    top: calc(40% - 24px);
+    left: 40%;
+    transform: translateY(-100%) scale(1);
+  }
+
+  83%{
+    opacity: 1;
+    top: calc(40% - 24px);
+    left: 3%;
+    transform: translateY(-100%) scale(1);
+  }
+
+  100%{
+    opacity: 0;
+    top: calc(40% - 24px);
+    left: 0%;
+    transform: translateY(-100%) scale(1.5,.3);
+  }
+}

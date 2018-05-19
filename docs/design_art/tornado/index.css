@@ -1,0 +1,89 @@
+body{
+  background: black;
+}
+
+.tornado{
+  position: fixed;
+  bottom: 1%; left: 50%;
+
+  width: 60px; height: 60px;
+  border: 4px solid;
+  border-right-color: transparent;
+  border-radius: 100%;
+  
+  transform-style: preserve-3d;
+  /* scale サイズ調整用 */
+  transform: translate(-50%, 0%) rotateX(77deg) scale(.85);
+}
+
+.tornado div{
+  position: absolute;
+  top: 50%; left: 50%;
+
+  width: 120%; height: 120%;
+  border: inherit;
+  border-color: inherit; 
+  border-right-color: inherit;
+  border-radius: inherit;
+  
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+  transform: translate(-50%,-50%) rotate(0) translateZ(0);
+}
+
+.tornado div.turn,
+.tornado div.turn div{
+  width: 90%; height: 90%;
+}
+
+/*　animation　*/
+.tornado{
+  animation: 
+    rootSpin 3s linear infinite alternate,
+    changeColor 30s steps(10,start) infinite alternate;
+}
+
+.tornado div{
+  transition: border-color .1s;
+  animation: spin 3s linear infinite alternate;
+}
+
+.tornado div.turn{
+  animation: 
+    spin 3s linear infinite alternate, 
+    changeColor 30s -5s steps(10,start) infinite alternate-reverse;
+}
+
+@keyframes rootSpin{
+  from{
+    transform-origin: -200% bottom;
+    transform: translate(-50%, -50%) rotateX(77deg) scale(.85) rotate(0) rotateY(5deg);
+  }
+  to{
+    transform-origin: +200% bottom;
+    transform: translate(-50%, -50%) rotateX(77deg) scale(.85) rotate(360deg) rotateY(5deg);
+  }
+}
+
+@keyframes spin{
+  from{
+    transform: translate(-50%,-50%) translateX(2px) rotate(0) translateZ(15px);
+  }
+  to{
+    transform: translate(-50%,-50%) translateX(2px) rotate(360deg) translateZ(25px);
+  }
+}
+
+@keyframes changeColor{
+  00%{  border-color: dodgerblue;  border-right-color: transparent; }
+  10%{  border-color: red;         border-right-color: transparent; }
+  20%{  border-color: white;       border-right-color: transparent; }
+  30%{  border-color: forestgreen; border-right-color: transparent; }
+  40%{  border-color: magenta;     border-right-color: transparent; }
+  50%{  border-color: crimson;     border-right-color: transparent; } 
+  60%{  border-color: yellow;      border-right-color: transparent; }
+  70%{  border-color: yellowgreen; border-right-color: transparent; }
+  80%{  border-color: pink;        border-right-color: transparent; }
+  90%{  border-color: orange;      border-right-color: transparent; }
+  100%{ border-color: dodgerblue;  border-right-color: transparent; } 
+}

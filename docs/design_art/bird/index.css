@@ -1,0 +1,242 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+:root{
+  height: 100%;
+
+  background:
+    linear-gradient(to top, snow .8em, transparent .8em),
+    radial-gradient(circle at 00% 25%, midnightblue, dodgerblue);
+}
+
+.bird{
+  --birdColor: yellowgreen;
+  --eyeColor: black;
+  /* 瞼 */
+  --eyelidColor: green;
+  --beckColor: black;
+  --clawColor: red;
+  --dir: -1;
+
+  position: fixed;
+  right: 3.8em;
+
+  font-size: 1.35em;
+
+  width: 12.5em; height: 12.5em;
+
+  perspective: 800px;
+  transform: translate3d(.35em,5.2em,-5em) scaleX(var(--dir));
+  z-index: 9999;
+}
+
+.bird .head{
+  position: absolute;
+
+  width: 34%; height: 34%;
+  border-radius: 100%;
+  background-color: var(--birdColor);
+  box-shadow: 
+   1px 1px 1px 0 black inset;
+  
+  transform: translate(5.3em,1.9em) translateZ(1px) rotate(-20deg);
+
+  z-index: 3;
+}
+
+/* eye */
+.bird .head:before{
+  content: '';
+  position: absolute;
+
+  width: .76em; height: .7em;
+  border-radius: 100%;
+  background-color: var(--eyeColor);
+  box-shadow: 
+    -.1em .08em 0 0 var(--eyelidColor) inset,
+    -.025em -.025em 0 0 var(--eyelidColor) inset;
+
+  transform: translate(2.5em,1.25em);
+
+  z-index: 2;
+}
+
+/* beak */
+.bird .head:after{
+  content: '';
+  position: absolute;
+
+  width: 2em; height: .5em;
+  border-radius: 0 100% 100%;
+  background: linear-gradient(to right, var(--birdColor) 30%, var(--beckColor) 30%);
+  
+  transform-origin: left center;
+  transform: translate(3.2em,2.65em) rotate(45deg) scaleX(1.3);
+  z-index: 1;
+}
+
+.bird .body{
+  position: absolute;
+
+  width: 35%; height: 55%;
+  border-radius: 0 100% 100% 100%;
+  background-color: yellowgreen;
+  box-shadow: 
+   0 0 2px 0 black inset, 0 0 1px 0 black;
+
+  transform: translate(3.5em,3.5em) rotate(40deg);
+
+  z-index: 2;
+}
+
+.bird .wing{
+  position: absolute;
+  bottom: 0;
+
+  width: 65%; height: 30%;
+  border-radius: 100% 15% 80% 0;
+  background: linear-gradient(to left, var(--birdColor) 20%, forestgreen 50%);
+  box-shadow: 
+   2px 0 0 0 black inset;
+
+  transform: translate(.5em,-3.5em) rotate(-48deg);
+  z-index: 3;
+}
+
+.bird .claw1,
+.bird .claw2{
+  position: absolute;
+  bottom: 0;
+  
+  width: 1em; height: 1em;
+  border-radius: 100%;
+
+  box-shadow: -.2em .1em 0 0 var(--clawColor) inset;
+  transform-style: preserve-3d;
+}
+
+.bird .claw1{
+  transform: translate3d(4.8em,-2.5em,0) rotateY(-30deg); 
+}
+
+.bird .claw2{
+  transform: translate3d(5.6em,-1.8em,-13em) rotateY(-25deg); 
+}
+
+.bird .claw1:before,
+.bird .claw2:before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  
+  width: 1em; height: 1em;
+  border-radius: 100%;
+  box-shadow: inherit;
+  
+  transform-style: preserve-3d;
+  transform: translate3d(+.1em,-.15em,-.25em);
+}
+
+.branch{
+  position: fixed;
+  top: 14.8em; right: 5.5em;
+  
+  font-size: 1.35em;
+
+  width: 3.125em; height: .825em;
+  background-color: snow;
+
+  perspective: 800px;
+
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  transform: rotateY(2deg) rotateX(87deg) rotate(-90deg);
+
+  z-index: 2;
+}
+
+.branch div{
+  position: absolute;
+  left: 100%;
+
+  width: inherit; height: inherit;
+  background-color: inherit;
+  
+  transform-style: preserve-3d;
+  transform-origin: left bottom;
+  transform: rotate(-3deg);
+}
+
+.branch div.return,
+.branch div.return div{
+  transform-origin: left top;
+  transform: rotate(+3deg);
+}
+
+.flower{
+  position: fixed;
+  bottom: 0; left: 15%;
+  
+  width: 100px; height: 100px;
+}
+
+.flower:before{
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+
+  width: 5px; height: 75%;
+  background-color: snow;
+  box-shadow: 0 0 2px darkgray inset;
+
+  transform: translateX(-50%);
+}
+
+.flower span{
+  position: absolute;
+  display: inline-block;
+  width: 50px; height: 50px;
+  
+  background-color: snow;
+  box-shadow: 0 0 1px 1px darkgray;
+}
+
+.flower span:nth-of-type(1){
+  bottom: 0; left: 0;
+  border-radius: 0 100% 0 100%;
+}
+
+.flower span:nth-of-type(2){
+  bottom: 0; right: 0;
+  border-radius: 100% 0 100% 0;
+}
+
+.flower .body{
+  position: absolute;
+  bottom: 50%; left: 50%;
+  width: 25px; height: 25px;
+  border-radius: 100% 0 100% 0;
+
+  background-color: snow;
+  box-shadow: 0 0 1px 1px darkgray;
+
+  transform: translate(-120%,-55%);
+}
+
+.flower .body div{
+  position: absolute;
+  bottom: 50%; left: 20%;
+
+  width: inherit; height: inherit;
+  border-radius: inherit;
+  background-color: inherit;
+
+  transform: translateX(-50%) rotate(+30deg);
+}
+
+.flower{
+  transform-origin: left center;
+  transform: rotate(8deg);
+}

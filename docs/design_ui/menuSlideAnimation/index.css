@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+}
+
+#menu{
+  position: fixed;
+  top: 0; right: 0;
+
+  font-size: 18px;
+  z-index: 9999;
+}
+  
+  #menuToggle{
+    display: none;
+  }
+
+  /* menu UI */
+  #menuUI{
+    position: fixed;
+    top: 0; right: 0;
+
+    font-size: 1em;
+
+    width: 2em;
+    height: 1.5em;
+    margin: .25em;
+    border-top: .25em solid;
+    border-bottom: .25em solid;
+
+    box-sizing: border-box;
+  }
+
+    #menuUI:before{
+      content: '';
+      position: absolute;
+      top: 50%; left: 0%;
+
+      width: 100%;
+      height: .2em;
+      background-color: currentColor;
+      transform: translateY(-50%);
+    }
+
+    /* filter */
+    #menuUI:after{
+      content: '';
+      position: fixed;
+      top: 0; left: -100vw;
+
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(22,22,22,.65);
+
+      /* auto フィルタをクリックでmenuを閉じる, none フィルタをクリック判定無効 */
+      pointer-events: auto;
+    }
+
+/* menu */
+#menuList {
+  position: fixed;
+  top: 0; left: 100%;
+
+  display: flex;
+  flex-flow: row wrap;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  pointer-events: none;
+
+  z-index: 9999;
+}
+  
+  #menuList li {
+    flex: 0 0 20%;
+    margin: .5em;
+    pointer-events: none;
+  }
+
+  #menuList li:nth-child(odd) {
+    background-color: yellowgreen;
+  }
+
+  #menuList li:nth-child(even) {
+    background-color: dodgerblue;
+  }
+
+    #menuList li a {
+      position: relative;
+      display: block;
+      padding: .8em .5em;
+      text-decoration: none;
+    }
+
+    #menuList li a:link,
+    #menuList li a:visited {
+      color: white;
+    }
+
+    #menuList li a:active,
+    #menuList li a:hover {
+      background-color: crimson;
+      box-shadow: 1px 1px 1px 0 black;
+    }
+
+  /* toggle animation */
+  #menuUI:after, #menuList{
+    transition: .4s;
+  }
+
+  #menuToggle:checked ~ #menuUI:after{
+    left: 0;
+  }
+
+  #menuToggle:checked ~ #menuList {
+    left: 0;
+    z-index: 1;
+  }
+
+  #menuToggle:checked ~ #menuList li{
+    pointer-events: auto;
+  }
+
+/* Content */
+#mainContent {
+   width: 98%;
+   margin: 0 auto;
+}
+
+#mainContent p {
+  width: 75%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}

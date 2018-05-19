@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="index.css">
+  <title>-Sample-</title>
+</head>
+<body ontouchstart="">
+
+<div id="toolbar" data-caption="menu">
+  <div id="add" class="button" onclick="add()">Add</div>
+  <div id="del" class="button" onclick="del()">Del</div>
+  <div id="reset_color" class="button" onclick="resetColor()">RESET Color</div>
+  <hr>
+  <div id="all_dll" class="button" onclick="allDel()">All Del</div>
+</div>
+
+<div id="block_wrap"></div>
+
+<script>
+var random,
+    randomBgColor,
+    wrap,
+    add,
+    del,
+    allDel,
+    resetColor;
+
+random = () => Math.random() * 256 >> 0;
+
+randomBgColor = element => {
+  element.style.backgroundColor =
+    `rgb(${random()}, ${random()}, ${random()})`;
+}
+
+wrap = document.getElementById('block_wrap');
+
+add = () => {
+  let e = document.createElement('div');
+      e.classList.add('block');
+
+  randomBgColor(e);
+  e.textContent = e.style.backgroundColor;
+
+  e.addEventListener('click', evt => {
+    evt.target.classList.toggle('selected');
+  });
+
+  wrap.appendChild(e);
+}
+ 
+del = () => {
+  let selectElements = Array.from(wrap.getElementsByClassName('selected'));
+  selectElements.forEach(ele => { 
+    wrap.removeChild(ele);
+  });
+}
+
+resetColor = () => {
+  let elements = Array.from(wrap.getElementsByClassName('block'));
+  elements.forEach(ele => { 
+    randomBgColor(ele);
+    ele.textContent = ele.style.backgroundColor;
+  }); 
+}
+
+allDel = () => {
+  wrap.textContent = null;
+}
+
+add();
+</script>
+
+</body>
+</html>

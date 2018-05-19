@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="index.css">
+  <title>CacaoAme</title>
+</head>
+<body>
+
+<div id="container">
+  
+<div id="go_home"    class="trigger" style="display: none;"></div>
+<div id="go_design"  class="trigger" style="display: none;"></div>
+<div id="go_tool"    class="trigger" style="display: none;"></div>
+<div id="go_profile" class="trigger" style="display: none;"></div>
+
+<header>
+  <nav>
+    <a href="#go_home"    class="link_home">home</a>
+    <a href="#go_profile" class="link_profile">Profile</a>
+    <a href="#go_design"  class="link_design">Design</a>
+    <a href="#go_tool"    class="link_tool">Tool</a>
+  </nav>
+</header>
+
+<div id="section_wrap">
+  <section id="home">
+    <h1 class="page_title">Junpei Yamashita Portfolio</h1>
+    <div class="wrap">
+      
+    </div>
+  </section>
+  <section id="profile">
+    <h1 class="page_title">profile</h1>
+    <div id="basic_info">
+      <h2>Basic Information</h2>
+      <div class="wrap">
+        <div class="icon"><img src="icon.png"></div>
+        <div class="data_wrap">
+          <div class="name data">
+            <span>Name</span>
+            <p>Junpei Yamashita</p>
+          </div>
+          <div class="dob data">
+            <span>Date of Birth (MM/DD/YYYY)</span>
+            <p>02/15/1996</p>
+          </div>
+          <div class="address data">
+            <span>Address</span>
+            <p>Kanagawa, Japan</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="skill" class="wrap">
+      <h2>Skill</h2>
+      <p class="item">HTML / CSS <span class="experience" > - <em data-start-year="2015" date-start-month="7"></em> years</span></p>
+      <p class="item">JavaScript <span class="experience" > - <em data-start-year="2016" date-start-month="10"></em> years</span></p>
+      <p class="item">WordPress <span class="experience" > - <em data-start-year="2016" date-start-month="10"></em> years</span></p>
+    </div>
+    <div id="activity" class="wrap">
+      <h2>Activity</h2>
+      <a class="item" href="https://github.com/junya0215">Github - MyPage</a>
+      <a class="item" href="http://qiita.com/junya">Qiita - MyPage</a>
+    </div> 
+  </section>
+  <section id="design">
+    <h1 class="page_title">Design</h1>
+    <div id="art" class="wrap">
+      <h2>Art</h2>
+      <a href="design_art/season/">Season</a>
+      <a href="design_art/fractal_triangle/">Fractal Triangle</a>
+      <a href="design_art/factory/">Factory</a>
+      <a href="design_art/line/">Line</a>
+      <a href="design_art/dandelion/">Dandelion</a>
+      <a href="design_art/tornado/">Tornado</a>
+      <a href="design_art/tornado_lightning/">Tornado Lightning</a>
+      <a href="design_art/bird/">Bird</a>
+      <a href="design_art/car/">Car</a>
+    </div>
+    <div id="UI" class="wrap">
+      <h2>User Interface</h2>
+      <a href="design_ui/menuSlideAnimation/">Menu Slide Animation</a>
+    </div>
+  </section>
+  <section id="tool">
+    <h1 class="page_title">Tool</h1>
+    <div class="wrap">
+      <a href="tool/randomColor/">RandomColor</a>
+    </div>
+  </section>
+</div>  <!-- section_wrap  -->
+</div>
+<script>
+var anchors = Array.from(document.querySelectorAll('a'));
+
+anchors.forEach(a => {
+  a.addEventListener('touchstart', () => {
+    a.classList.add('hover');
+  });
+  a.addEventListener('touchend', () => {
+    a.classList.remove('hover');
+  });
+});
+
+
+var experience_ele = Array.from(document.querySelectorAll('.experience em'));
+
+const experienceYear = (startedYear, startedMonth) => {
+
+  const startDate = new Date(startedYear, startedMonth - 1),
+      now = new Date()
+  ;
+
+  if(now <= startDate) return 0;
+  return new Date(now - startDate).getFullYear() - 1970;
+}
+
+experience_ele.forEach(e => {
+  e.textContent = experienceYear(e.dataset.startYear >> 0, e.dataset.startMonth >> 0);
+});
+</script>
+</body>
+</html>

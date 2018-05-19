@@ -1,0 +1,150 @@
+body{
+  background-color: black;
+}
+
+.circle{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 300px;
+  height: 300px;
+  border: 150px solid;
+  /* 上 右 下 左 */
+  border-color: #FFBFD3 #0050BC #F1CE6A #FFFAFA;
+  border-radius: 100%;
+  box-sizing: border-box;
+
+  transform: translate(-50%,-50%);
+}
+
+.tree{
+  position: fixed;
+  bottom: 50%;
+  left: 50%;
+
+  width: 6px;
+  height: 75px;
+  background-image: linear-gradient(to top,transparent 25%,#8A5533);
+
+  transform-origin: center bottom;
+}
+
+.tree.spring{ transform: translate(-50%,0) rotate(0deg);  }
+.tree.summer{ transform: translate(-50%,0) rotate(90deg); }
+.tree.autumn{ transform: translate(-50%,0) rotate(180deg);}
+.tree.winter{ transform: translate(-50%,0) rotate(270deg);}
+
+/* 枝 */
+.tree div{
+  position: absolute;
+  bottom: 90%;
+  left: 50%;
+
+  width: 100%;
+  height: 65%;
+  border-radius: 100% 100% 0 0;
+
+  background-color: #8A5533;
+}
+
+.tree div:nth-child(odd){
+  transform-origin: right bottom;
+  transform: translateX(-50%) rotate(-20deg) skewY(-10deg);
+}
+
+.tree div:nth-child(even){
+  transform-origin: left bottom;
+  transform: translateX(-50%) rotate(20deg) skewY(5deg);
+}
+
+.tree div:empty{
+  box-shadow: 0 20px 0 0 currentColor inset; 
+}
+
+.tree div:empty:after{
+  content: "";
+
+  position: absolute;
+  bottom: 95%;
+  left: 45%;
+
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+
+  box-shadow: none;
+  box-sizing: border-box;
+  
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* 季節 */
+.spring div:nth-child(odd):empty { color: #FFBFD3; }
+.spring div:nth-child(even):empty{ color: #FBF0F2; }
+.summer div:nth-child(odd):empty { color: #1F5F22; }
+.summer div:nth-child(even):empty{ color: #6FB545; }
+.autumn div:nth-child(odd):empty { color: #E90003; }
+.autumn div:nth-child(even):empty{ color: #F49003; }
+.winter div:nth-child(odd):empty { color: snow; }
+.winter div:nth-child(even):empty{ color: snow; }
+
+.spring div:empty:after{ 
+  border-radius: 100%;
+}
+
+.summer div:empty:after{ 
+  border-radius: 100% 0 100% 0;
+}
+
+.autumn div:empty:after{
+  border-radius: 100% 0 100% 100%;
+  transform: translateX(-50%) rotate(-45deg) skewX(15deg);
+}
+
+.winter div:empty:after{
+  border: none;
+}
+
+/* アニメーション */
+.tree div{
+  animation: grow 3s linear both;
+}
+
+.tree div:empty:after{
+  animation: flowering 3s 3s linear both;
+}
+
+.winter:hover div:empty:after{
+  content: "＊  *";
+  animation: snow_fall 3s linear infinite;
+}
+
+@keyframes grow{
+  from{
+    height: 0;
+  }
+  to{
+    height: 95%;
+  }
+}
+
+@keyframes flowering{
+  to{
+    border-color: currentColor;
+    box-shadow: 0 15px 50px 2px currentColor;
+  }
+}
+
+@keyframes snow_fall{
+  to{
+    bottom: -50%;
+    color: transparent;
+    transform: rotate(90deg);
+  }
+}

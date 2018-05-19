@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="index.css">
+  <title>Factory</title>
+</head>
+<body ontouchstart="">
+<div class="world root mainColor">
+  <!-- 1段目 -->
+  <div class="area">
+    <div class="conveyor bdColor">
+      <span class="roller bdColor"></span>
+    </div>
+  </div>
+  <!-- 2段目 -->
+  <div class="area">
+    <div class="sort_area black"></div>
+    <div class="press_machine mainColor bdColor"></div>
+    <div class="conveyor full invert bdColor">
+      <span class="roller bdColor"></span>
+    </div>
+  </div>
+  <!-- 3段目 -->
+  <div class="area last">
+    <div class="conveyor bdColor">
+      <span class="roller bdColor"></span>
+    </div>
+  </div>
+  <!-- トラック -->
+  <div class="truck">
+    <div class="head white"></div>
+    <div class="container white">
+      <div class="box root">
+        <div>
+          <div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="truck sub">
+    <div class="head white"></div>
+    <div class="container white">
+      <div class="box root yellowgreen">
+        <div>
+          <div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="quality">
+    <span class="box unknown orange"></span>
+    <span class="box unknown orange"></span>
+    <span class="box unknown orange"></span>
+    <span class="box unknown orange"></span>
+    <span class="box unknown orange"></span>
+    <span class="box unknown orange"></span>
+  </div>
+  <div class="quality">
+    <span class="box good orange"></span>
+    <span class="box good orange"></span>
+  </div>
+  <div class="quality">
+    <span class="box bad orange"></span>
+    <span class="box bad orange"></span>
+  </div>
+</div>
+<!-- create link -->
+<script src="../index.js"></script>
+</body>
+</html>

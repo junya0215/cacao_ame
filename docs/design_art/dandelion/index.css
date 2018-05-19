@@ -1,0 +1,132 @@
+:root{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom,#0240A3,#000000) no-repeat;
+}
+
+.flower{
+  position: fixed;
+  bottom: 50px; right: 0;
+
+  width: 200px; height: 230px;
+  backface-visibility: hidden;
+  transform: translate(-50%,0%);
+}
+
+/* 花の中心部 inflorescence */
+.flower:before{
+  content: '●';
+  position: absolute;
+  top: 50%; left: 50%;
+
+  font-size: 1.5em;
+  
+  backface-visibility: hidden;
+  transform: translate(-50%,-50%);
+  z-index: 2;
+}
+
+/* stem */
+.flower:after{
+  content: 'γ';
+  position: absolute;
+  top: 50%; left: 50%;
+
+  font-size: 5em;
+  width: 1em; height: 1em;
+  text-indent: .2em;
+  line-height: 1;
+  
+  backface-visibility: hidden;
+  transform: translate(-50%,50%) scale(-1,-2);
+  z-index: 1;
+}
+
+.flower .petal{
+  position: absolute;
+  top: 50%; left: 50%;
+
+  font-size: 2em;
+  width: 1em; height: 1em;
+
+  text-align: center;
+  backface-visibility: hidden;
+  transform: translate(-50%,-50%) rotate(var(--angle)) translateY(-23px);
+  z-index: 3;
+}
+
+.flower .petal:nth-of-type(1){  --angle: 00deg;  --delay: +1.0s;}
+.flower .petal:nth-of-type(2){  --angle: 30deg;  --delay: +2.3s;}
+.flower .petal:nth-of-type(3){  --angle: 60deg;  --delay: +1.6s;}
+.flower .petal:nth-of-type(4){  --angle: 90deg;  --delay: -2.7s;}
+.flower .petal:nth-of-type(5){  --angle: 120deg; --delay: +1.4s;}
+.flower .petal:nth-of-type(6){  --angle: 150deg; --delay: +0.3s;}
+.flower .petal:nth-of-type(7){  --angle: 180deg; --delay: -0.6s;}
+.flower .petal:nth-of-type(8){  --angle: 210deg; --delay: -3.0s;}
+.flower .petal:nth-of-type(9){  --angle: 240deg; --delay: -2.3s;}
+.flower .petal:nth-of-type(10){ --angle: 270deg; --delay: -0.1s;}
+.flower .petal:nth-of-type(11){ --angle: 300deg; --delay: +1.8s;}
+.flower .petal:nth-of-type(12){ --angle: 330deg; --delay: +0.0s;}
+
+/* petal */
+.flower .petal:before,
+.flower .petal:after{
+  content: 'Y';
+  position: absolute;
+  top: 50%; left: 50%;
+
+  white-space: nowrap;
+
+  backface-visibility: hidden;
+  transform-origin: center bottom;
+  transform: translate(-50%,-50%) rotate(var(--angle)) rotateZ(0);
+}
+
+.flower .petal:before{ --angle: +25deg; }
+.flower .petal:after{  --angle: -25deg; }
+
+/* colors */
+.petalColor span{
+  color: rgba(255,255,255,.85);
+}
+
+.inflorescenceColor:before{
+  color: black;
+}
+
+.stemColor:after{
+  color: rgba(111,141,43,.85);
+}
+
+/* animation */
+.flower .petal{
+  animation: wind 3s ease infinite alternate;
+}
+
+.flower .petal:nth-of-type(-n+3):before,
+.flower .petal:nth-last-of-type(-n+3):after{ 
+  animation: petal_anim 6s var(--delay) linear infinite;
+}
+
+@keyframes petal_anim{
+  to{
+    transform: 
+      translate(-100vw,-100vh) rotate(var(--angle)) 
+      rotateZ(360deg) translateZ(0px);
+  }
+}
+
+@keyframes wind{
+  from{
+    transform: 
+      translate(-50%,-50%) rotate(var(--angle)) 
+      translateY(-23px) rotateX(0) translateZ(0px);
+  }
+
+  to{
+    transform: 
+      translate(-50%,-50%) rotate(var(--angle)) 
+      translateY(-23px) rotateX(-70deg) translateZ(0px);
+  }
+}
