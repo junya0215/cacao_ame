@@ -185,6 +185,7 @@ section .page_title{
 
   width: 100%; height: auto;
   margin-top: 10px;
+  border: 1px solid rgba(255,255,255,.75);
 }
 
 #basic_info .icon{
@@ -201,22 +202,21 @@ section .page_title{
   flex: 0 0 auto;
   align-self: stretch;
   
-  display: flex;
-  flex-flow: column wrap;
+  display: block;
   height: auto;
 
   font-size: 1.25em;
   line-height: 1.3;
 
-  border: 1px solid white;
+  border: 1px solid rgba(255,255,255,.75);
 }
 
 #basic_info .data_wrap .data{
-  flex: 1 1 auto;
-
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
+
+  height: 50px;
 }
 
 #basic_info .dob{
@@ -249,7 +249,7 @@ section .page_title{
 }
 
 #basic_info .data p{
-  flex: 0 1 auto;
+  flex: 1 1 auto;
   max-width: 500px;
 
   display: flex;
