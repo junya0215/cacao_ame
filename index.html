@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div id="container">
+<div id="container" ontouchstart="">
   
 <div id="go_home"    class="trigger" style="display: none;"></div>
 <div id="go_design"  class="trigger" style="display: none;"></div>
@@ -92,14 +92,14 @@
 <script>
 var anchors = Array.from(document.querySelectorAll('a'));
 
-// anchors.forEach(function (a){
-//   a.addEventListener('touchstart', function () {
-//     a.classList.add('hover');
-//   }, false);
-//   a.addEventListener('touchend', function () {
-//     a.classList.remove('hover');
-//   }, false);
-// });
+anchors.forEach(function (a){
+  a.addEventListener('touchstart', function () {
+    a.classList.add('hover');
+  });
+  a.addEventListener('touchend', function () {
+    a.classList.remove('hover');
+  });
+});
 
 
 var experience_ele = Array.from(document.querySelectorAll('.experience em'));
