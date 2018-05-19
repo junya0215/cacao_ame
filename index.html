@@ -88,14 +88,8 @@
   </section>
 </div>  <!-- section_wrap  -->
 </div>
-<script type='application/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js'></script>
 <script>
-// first click test
-document.addEventListener('DOMContentLoaded', function() {  
-  FastClick.attach(document.body);
-}, false);
-
-var anchors = Array.from(document.querySelectorAll('a'));
+var anchors = Array.from(document.querySelectorAll('section a'));
 
 anchors.forEach(function (a){
   a.addEventListener('touchstart', function () {
