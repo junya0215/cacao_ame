@@ -7,8 +7,7 @@
   <title>CacaoAme</title>
 </head>
 <body>
-
-<div id="container" ontouchstart="">
+<div id="container">
   
 <div id="go_home"    class="trigger" style="display: none;"></div>
 <div id="go_design"  class="trigger" style="display: none;"></div>
@@ -89,7 +88,13 @@
   </section>
 </div>  <!-- section_wrap  -->
 </div>
+<script type='application/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js'></script>
 <script>
+// first click test
+document.addEventListener('DOMContentLoaded', function() {  
+  FastClick.attach(document.body);
+}, false);
+
 var anchors = Array.from(document.querySelectorAll('a'));
 
 anchors.forEach(function (a){
