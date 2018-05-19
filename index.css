@@ -77,15 +77,6 @@ nav a.hover{
 #go_design:target  ~ #section_wrap{ transform: translate(0,-200%); }
 #go_tool:target    ~ #section_wrap{ transform: translate(0,-300%); }
 
-/* link active */
-header .link_home{
-  background-color: rgba(30,144,255,.6);
-}
-
-:target ~ header .link_home{
-  background: transparent;
-}
-
 #go_home:target    ~ header .link_home,
 #go_profile:target ~ header .link_profile,
 #go_design:target  ~ header .link_design,
