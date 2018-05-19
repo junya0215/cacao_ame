@@ -249,7 +249,7 @@ section .page_title{
 }
 
 #basic_info .data p{
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   max-width: 500px;
 
   display: flex;
