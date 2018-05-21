@@ -88,17 +88,8 @@
   </section>
 </div>  <!-- section_wrap  -->
 </div>
+<script src="common.js"></script>
 <script>
-if(!Array.from){
-  Array.from = function(list){
-    var arr = [];
-    for(var i =0; i< list.length; i++){
-      arr.push(list[i]);
-    }
-    return arr;
-  };
-}
-
 var anchors = Array.from(document.querySelectorAll('section a'));
 
 anchors.forEach(function (a){
