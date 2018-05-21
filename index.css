@@ -177,15 +177,18 @@ section .page_title{
 }
 
 #home .page_title{
-  font-size: 2.5em; 
+  font-size: 3.5em;
+  line-height: 1.1;
   color: #FFF;
 }
 
 #home .page_title span{
   display: block;
-  font-size: 0.6em;
+  font-size: 0.4em;
+  line-height: 1.3;
   padding-top: 10px;
   text-transform: none;
+  text-indent: 0.1em;
 }
 
 /* profile section */
