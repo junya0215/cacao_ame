@@ -185,11 +185,16 @@ section .page_title{
 
 #basic_info .icon{
   flex: 0 0 150px;
-  width: 150px;
+  width: 150px; height: 150px;
 
   display: flex;
   align-items: center;
   margin-right: 15px;
+}
+
+#basic_info img{
+  display: block;
+  width: 150px; height: 150px;
   border: 1px solid rgba(255,255,255,.75);
 }
 
