@@ -32,7 +32,7 @@
     <div id="basic_info">
       <h2>Basic Information</h2>
       <div class="wrap">
-        <div class="icon"><img src="icon.png"></div>
+        <div class="icon"><div class="img_wrap"><img src="icon.png"></div></div>
         <div class="data_wrap">
           <div class="name data">
             <span>Name</span>
@@ -89,6 +89,16 @@
 </div>  <!-- section_wrap  -->
 </div>
 <script>
+if(!Array.from){
+  Array.from = function(list){
+    var arr = [];
+    for(var i =0; i< list.length; i++){
+      arr.push[list[i]];
+    }
+    return arr;
+  };
+}
+
 var anchors = Array.from(document.querySelectorAll('section a'));
 
 anchors.forEach(function (a){
