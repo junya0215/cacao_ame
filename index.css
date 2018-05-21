@@ -481,6 +481,11 @@ section .page_title{
 
 @media screen and (min-width: 1440px){
   body{ font-size: 20px; }
+  
+  #basic_info .data span{
+      -ms-flex: 0 1 150px;
+          flex: 0 1 150px;
+  }
 }
 
 @media screen and (max-width: 620px){
