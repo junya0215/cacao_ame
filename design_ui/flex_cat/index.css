@@ -1,0 +1,133 @@
+/* Reset */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:before, *:after{
+  box-sizing: border-box;
+}
+
+html, body{
+  height: 100%;
+}
+
+a{
+  -moz-touch-action: manipulation;
+  -webkit-touch-action: manipulation;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+}
+
+.flex{
+  position: relative;
+  top: 10px; left: 100px;
+
+  display: flex;
+  flex-flow: column nowrap;
+
+  width: 100px; height: auto;
+  /* sample用 */
+  min-height: 90%;
+}
+
+/*　コンテンツ　*/
+.flex .item{
+  flex: 0 0 auto;
+  width: 100px;
+
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+
+  border-width: 0 1px;
+  border-style: solid;
+  border-color: darkkhaki;
+
+  font-size: 1.3em;
+  color: transparent;
+  text-decoration: none;
+
+  /*　変化をアニメーション　*/
+  transition: 1s linear;
+}
+
+/* ホバー時 .itemの高さが変化 */
+.flex:hover .item{
+  flex: 1 0 auto;
+  color: black;
+}
+
+.flex:hover .item + .item{
+  border-top: 1px solid rgba(0,0,0,.6);
+}
+
+.flex .item:hover{
+  background-color: lemonchiffon;
+}
+
+/*　ねこ　*/
+.flex::before,
+.flex::after{
+  content: '';
+  position: relative;
+
+  font-size: 10px;
+
+  color: darkkhaki;
+
+  flex: 0 0 7em;
+  width: 10em;
+  background-repeat: no-repeat;
+}
+
+.flex::before{
+  /* head, ear, eye, mouth, whiskers */
+  background-image:
+    radial-gradient(10em 10em at 50% 100%, 
+      transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
+    /* ear */
+    radial-gradient(1.75em 4.3em at 94% 106%, 
+      transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
+    radial-gradient(1.75em 4.3em at 6% 106%, 
+      transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
+    /* eye */
+    radial-gradient(1em 1em at 50% 50%, currentColor 50%, transparent 50%),
+    radial-gradient(1em 1em at 50% 50%, currentColor 50%, transparent 50%),
+    /* mouth */
+    radial-gradient(3em 3em at 50% -9%,
+      transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
+    radial-gradient(3em 3em at 50% -9%,
+      transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
+    /* whiskers */
+    radial-gradient(4em 2em at 90% 110%,
+      transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
+    radial-gradient(4em 2em at 90% 110%,
+      transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
+     radial-gradient(4em 2em at 90% 110%,
+      transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
+    radial-gradient(4em 2em at 90% 110%,
+      transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%);
+  
+
+  background-position: 0 0,
+    -7.0em -3.6em,  7.0em -3.6em, 
+    -1.5em  1.0em,  1.5em  1.0em,
+    -1.3em  5.7em,  1.3em  5.7em,
+    -7.5em -1.7em, -7.9em -1.0em, 0.2em -1.7em, 0.3em -1.0em;
+}
+
+.flex::after{
+  /* body, paw */
+  background-image:
+    radial-gradient(10em 9em at 50% 0%, 
+      transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
+    radial-gradient(4em 10em at 90% -25%, 
+      transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
+    radial-gradient(4em 10em at 10% -25%, 
+      transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%);
+
+  background-position: 0 0, -5.2em 1.4em, 5.2em 1.4em;
+}
