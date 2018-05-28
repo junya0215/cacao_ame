@@ -74,8 +74,8 @@ a{
   content: '';
   position: relative;
   
+  display: block;
   font-size: 10px;
-
   color: darkkhaki;
 
   flex: 0 0 7em;
@@ -87,25 +87,25 @@ a{
   /* head, ear, eye, mouth, whiskers */
   background-image:
     radial-gradient(10em 10em at 50% 100%, 
-      transparent, transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
+      transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
     radial-gradient(1.75em 4.3em at 94% 106%, 
-      transparent, transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
+      transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
     radial-gradient(1.75em 4.3em at 6% 106%, 
-      transparent, transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
+      transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
     radial-gradient(1em 1em at 50% 50%, currentColor 50%, transparent 50%),
     radial-gradient(1em 1em at 50% 50%, currentColor 50%, transparent 50%),
     radial-gradient(3em 3em at 50% -9%,
-      transparent, transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
+      transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
     radial-gradient(3em 3em at 50% -9%,
-      transparent, transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
+      transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
     radial-gradient(4em 2em at 90% 110%,
-      transparent, transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
+      transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
     radial-gradient(4em 2em at 90% 110%,
-      transparent, transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
+      transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
      radial-gradient(4em 2em at 90% 110%,
-      transparent, transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
+      transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%),
     radial-gradient(4em 2em at 90% 110%,
-      transparent, transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%);
+      transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor 50%, transparent 50%);
   
 
   background-position: 0 0,
