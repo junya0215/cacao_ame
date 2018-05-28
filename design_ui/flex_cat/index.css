@@ -69,8 +69,8 @@ a{
 }
 
 /*　ねこ　*/
-.flex::before,
-.flex::after{
+.flex:before,
+.flex:after{
   content: '';
   position: relative;
 
@@ -83,7 +83,7 @@ a{
   background-repeat: no-repeat;
 }
 
-.flex::before{
+.flex:before{
   /* head, ear, eye, mouth, whiskers */
   background-image:
     radial-gradient(10em 10em at 50% 100%, 
@@ -119,7 +119,7 @@ a{
     -7.5em -1.7em, -7.9em -1.0em, 0.2em -1.7em, 0.3em -1.0em;
 }
 
-.flex::after{
+.flex:after{
   /* body, paw */
   background-image:
     radial-gradient(10em 9em at 50% 0%, 
