@@ -1,0 +1,125 @@
+/* Reset */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:before, *:after{
+  box-sizing: border-box;
+}
+
+html, body{
+  height: 100%;
+}
+
+a{
+  -moz-touch-action: manipulation;
+  -webkit-touch-action: manipulation;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+}
+
+.block{
+  position: relative;
+  top: 10px; left: 100px;
+  
+  display: block;
+  width: 100px; height: auto;
+  min-height: 90%;
+}
+
+/*　コンテンツ　*/
+.block .item{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+
+  width: 100px; height: 15px;
+  padding: 0 5px;
+
+  border-width: 0 1px;
+  border-style: solid;
+  border-color: forestgreen;
+
+  font-size: 1.3em;
+  color: transparent;
+  text-decoration: none;
+
+  /*　変化をアニメーション　*/
+  transition: 1s, color 0.5s;
+}
+
+/* ホバー時 .itemの高さが変化 */
+.block:hover .item{
+  height: 130px;
+  color: black;
+}
+
+.block:hover .item + .item{
+  border-top: 1px solid rgba(0,0,0,.6);
+}
+
+.block .item:hover{
+  background-color: #FFFACD;
+}
+
+/*　ねこ　*/
+.block:before,
+.block:after{
+  content: '';
+  position: relative;
+  
+  display: block;
+  font-size: 10px;
+  color: forestgreen;
+
+  width: 10em; height: 7em;
+  background-repeat: no-repeat;
+}
+
+.block:before{
+  /* head, ear, eye, mouth, whiskers */
+  background-image:
+    radial-gradient(9.9em 9.9em at 50% 100%, 
+      transparent 49.5%, currentColor 49.5%, currentColor 50.5%, transparent 50.5%),
+    radial-gradient(1.75em 4.3em at 94% 106%, 
+      transparent 48.5%, currentColor 48.5%, currentColor 51.5%, transparent 51.5%),
+    radial-gradient(1.75em 4.3em at 6% 106%, 
+      transparent 48.5%, currentColor 48.5%, currentColor 51.5%, transparent 51.5%),
+    radial-gradient(1em 1em at 50% 50%, currentColor 50%, transparent 50%),
+    radial-gradient(1em 1em at 50% 50%, currentColor 50%, transparent 50%),
+    radial-gradient(3em 3em at 50% -9%,
+      transparent 48.5%, currentColor 48.5%, currentColor 51.5%, transparent 51.5%),
+    radial-gradient(3em 3em at 50% -9%,
+      transparent 48.5%, currentColor 48.5%, currentColor 51.5%, transparent 51.5%),
+    radial-gradient(4em 2em at 90% 110%,
+      transparent 48.5%, currentColor 48.5%, currentColor 51.5%, transparent 51.5%),
+    radial-gradient(4em 2em at 90% 110%,
+      transparent 48.5%, currentColor 48.5%, currentColor 51.5%, transparent 51.5%),
+     radial-gradient(4em 2em at 90% 110%,
+      transparent 48.5%, currentColor 48.5%, currentColor 51.5%, transparent 51.5%),
+    radial-gradient(4em 2em at 90% 110%,
+      transparent 48.5%, currentColor 48.5%, currentColor 51.5%, transparent 51.5%);
+  
+
+  background-position: 0 0,
+    -7.0em -3.6em,  7.0em -3.6em, 
+    -1.5em  1.0em,  1.5em  1.0em,
+    -1.3em  5.7em,  1.3em  5.7em,
+    -7.5em -1.7em, -7.9em -1.0em, 0.2em -1.7em, 0.3em -1.0em;
+}
+
+.block:after{
+  /* body, paw */
+  background-image:
+    radial-gradient(9.8em 8.8em at 50% 0%, 
+      transparent 49.5%, currentColor 49.5%, currentColor 50.5%, transparent 50.5%),
+    radial-gradient(4em 10em at 90% -25%, 
+      transparent 49%, currentColor 49%, currentColor 50.5%, transparent 50.5%),
+    radial-gradient(4em 10em at 10% -25%, 
+      transparent 49%, currentColor 49%, currentColor 50.5%, transparent 50.5%);
+
+  background-position: 0 0, -5.2em 1.3em, 5.2em 1.3em;
+}
