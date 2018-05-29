@@ -49,6 +49,11 @@ a{
   color: transparent;
   text-decoration: none;
 
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
   /*　変化をアニメーション　*/
   transition: 1s linear;
 }
