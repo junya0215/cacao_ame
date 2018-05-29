@@ -27,9 +27,9 @@ a{
   display: flex;
   flex-flow: column nowrap;
 
-  width: 100px; height: auto;
+  width: 100px; height: 600px;
   /* sample用 */
-  min-height: 90%;
+  /*min-height: 90%;*/
 }
 
 /*　コンテンツ　*/
@@ -56,7 +56,7 @@ a{
 
 /* ホバー時 .itemの高さが変化 */
 .flex:hover .item{
-  flex: 1 1 1em;
+  flex: 1 0 0%;
   color: black;
 }
 
